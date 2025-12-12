@@ -127,3 +127,15 @@ runs:
         Script: |
           # Auto-Release
           ${{ github.action_path }}/scripts/main.ps1
+    - name: Print
+      shell: pwsh
+      env:
+        out: ${{ toJson(steps.execute.outputs) }}
+        out2: ${{ toJson(steps.execute.outputs.result) }}
+        out3: ${{ steps.execute.outputs.result }}
+        out4: ${{ fromJson(steps.execute.outputs.result).new_version }}
+      run: |
+        echo "$out"       
+        echo "$out2"   
+        echo "$out3"   
+        echo "$out4"          
