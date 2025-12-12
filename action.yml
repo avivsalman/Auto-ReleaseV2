@@ -90,6 +90,11 @@ inputs:
     required: false
     default: ${{ github.workspace }}
 
+outputs:
+  result:
+    description: result outputs of the script (JSON)
+    value: ${{ steps.execute.outputs.result }}
+
 runs:
   using: composite
   steps:

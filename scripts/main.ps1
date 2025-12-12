@@ -360,6 +360,10 @@ if ($createPrerelease -or $createRelease -or $whatIf) {
         }
     }
     Write-GitHubNotice -Title 'Release created' -Message $newVersion
+
+    Set-GitHubOutput -Name 'latest_version' -Value $latestVersion
+    Set-GitHubOutput -Name 'new_version_full' -Value $newVersion
+    Set-GitHubOutput -Name 'new_version' -Value $newVersion.ToString()
 } else {
     Write-Output 'Skipping release creation.'
 }
