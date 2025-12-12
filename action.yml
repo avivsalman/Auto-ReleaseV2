@@ -99,6 +99,7 @@ runs:
   using: composite
   steps:
     - name: Auto-Release
+      id: execute
       uses: PSModule/GitHub-Script@v1
       env:
         PSMODULE_AUTO_RELEASE_INPUT_AutoCleanup: ${{ inputs.AutoCleanup }}
